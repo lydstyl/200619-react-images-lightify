@@ -6,7 +6,6 @@
   "scripts": {
     "server-install": "npm install",
     "client-install": "cd client && npm install",
-    "install": "npm run server-install && npm run client-install",
     "server-start": "nodemon server.js",
     "client-start": "cd client && npm start",
     "start": "concurrently -n 'server,client' -c 'red,green' \"npm run server-start\" \"npm run client-start\""
@@ -21,6 +20,7 @@
     "sharp": "^0.23.2"
   },
   "devDependencies": {
+    "concurrently": "^5.2.0",
     "nodemon": "^2.0.4"
   }
 }
