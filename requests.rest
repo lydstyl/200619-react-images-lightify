@@ -1,0 +1,20 @@
+
+POST http://localhost:5000/resize
+Content-Type: application/json
+
+{
+    "settings": 
+        {
+            "width": "600",
+            "inputImagesFolder": "/home/gab/imagesFolder",
+            "greyscale": false,
+            "outputExt": "jpg"
+        }
+
+}
+
+###
+
+GET http://localhost:5000
+
+###

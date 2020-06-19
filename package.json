@@ -1,0 +1,26 @@
+{
+  "name": "191115-imagelightify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server-install": "npm install",
+    "client-install": "cd client && npm install",
+    "install": "npm run server-install && npm run client-install",
+    "server-start": "nodemon server.js",
+    "client-start": "cd client && npm start",
+    "start": "concurrently -n 'server,client' -c 'red,green' \"npm run server-start\" \"npm run client-start\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "image-size": "^0.8.3",
+    "mkdirp": "^0.5.1",
+    "sharp": "^0.23.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
