@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.field {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+}
+
+input,
+select {
+  min-height: 50px;
+  font-size: 2rem;
+}
+
+label {
+  margin-right: 20px;
+}
+
+[type="submit"] {
+  padding: 10px;
+}

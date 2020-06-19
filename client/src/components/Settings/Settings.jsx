@@ -24,8 +24,10 @@ export const Settings = () => {
 
     const form = document.querySelector("form");
 
+    const width = form.width2.value || form.width.value;
+
     const settings = {
-      width: parseInt(form.width.value, 10),
+      width: parseInt(width, 10),
       inputImagesFolder: form.inputImagesFolder.value,
       greyscale: form.greyscale.value === "false" ? false : true,
       outputExt: form.outputExt.value,
@@ -38,19 +40,49 @@ export const Settings = () => {
 
   return (
     <form>
+      <h1>Images Lightify</h1>
+
       <div className="field">
-        <label htmlFor="inputImagesFolder">inputImagesFolder</label>
+        <label htmlFor="inputImagesFolder">Dossier</label>
         <input
+          style={{ width: "600px" }}
           type="text"
           name="inputImagesFolder"
           id="inputImagesFolder"
           defaultValue="/home/gab/imagesFolder"
         />
+
+        {/* <input
+          type="file"
+          name="inputImagesFolder"
+          id="inputImagesFolder"
+          webkitdirectory="true"
+          directory="true"
+          // multiple
+        /> */}
       </div>
 
       <div className="field">
         <label htmlFor="width">Largeur en px</label>
-        <input type="number" name="width" id="width" />
+
+        <select name="width" id="width" style={{ marginRight: "20px" }}>
+          <option value="1080">1080</option>
+          <option value="1200">1200</option>
+          <option value="1366">1366</option>
+          <option value="1440">1440</option>
+          <option value="1920">1920</option>
+          <option value="2160">2160</option>
+          <option value="2560">2560</option>
+          <option value="3840">3840</option>
+        </select>
+
+        <label htmlFor="width2">Ou préciser</label>
+        <input
+          type="number"
+          name="width2"
+          id="width2"
+          style={{ width: "100px" }}
+        />
       </div>
 
       <div className="field">
@@ -63,6 +95,7 @@ export const Settings = () => {
       </div>
 
       <div className="field">
+        <label htmlFor="outputExt">Format</label>
         <select name="outputExt" id="outputExt">
           <option value="jpg">JPG</option>
           <option value="png">PNG</option>
