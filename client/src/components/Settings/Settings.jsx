@@ -1,7 +1,7 @@
 import React from "react";
 
 const resizeImages = async (settings) => {
-  // POST request using fetch with async/await
+  // POST request to server using fetch with async/await
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -9,8 +9,6 @@ const resizeImages = async (settings) => {
   };
 
   const response = await fetch(
-    // "https://jsonplaceholder.typicode.com/posts",
-    // "http://localhost:4000/resize", // todo https
     "/resize", // todo https
     requestOptions
   );
@@ -28,35 +26,55 @@ export const Settings = () => {
 
     const settings = {
       width: parseInt(form.width.value, 10),
-      inputImagesFolder: "/home/gab/imagesFolder",
-      greyscale: false,
-      outputExt: "jpg",
+      inputImagesFolder: form.inputImagesFolder.value,
+      greyscale: form.greyscale.value === "false" ? false : true,
+      outputExt: form.outputExt.value,
     };
 
-    console.log("handleClick -> settings", settings);
+    console.log("handleClick -> settings", JSON.stringify(settings, null, 4));
 
-    // send the settings to the server here
-    const data = resizeImages(settings);
-
-    console.log("handleClick -> data", data);
+    const data = resizeImages(settings); // send the settings to the server here
   };
 
   return (
     <form>
-      <label htmlFor="width">Largeur en px</label>
-      <input type="number" name="width" id="width" />
+      <div className="field">
+        <label htmlFor="inputImagesFolder">inputImagesFolder</label>
+        <input
+          type="text"
+          name="inputImagesFolder"
+          id="inputImagesFolder"
+          defaultValue="/home/gab/imagesFolder"
+        />
+      </div>
 
-      <br />
-      <br />
+      <div className="field">
+        <label htmlFor="width">Largeur en px</label>
+        <input type="number" name="width" id="width" />
+      </div>
+
+      <div className="field">
+        <label htmlFor="greyscale">Noir et blanc</label>
+        {/* <input type="checkbox" name="greyscale" id="greyscale" /> */}
+        <select name="greyscale" id="greyscale">
+          <option value="false">Non</option>
+          <option value="true">Oui</option>
+        </select>
+      </div>
+
+      <div className="field">
+        <select name="outputExt" id="outputExt">
+          <option value="jpg">JPG</option>
+          <option value="png">PNG</option>
+          <option value="webp">WEBP</option>
+        </select>
+      </div>
 
       <input
         onClick={handleClick}
         type="submit"
         value="Redimensionner les images"
       />
-
-      <br />
-      <br />
     </form>
   );
 };

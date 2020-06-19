@@ -12,11 +12,12 @@ app.post("/resize", (req, res) => {
   const { settings } = req.body;
 
   settings.width = parseInt(settings.width, 10);
+  settings.greyscale = settings.greyscale;
   settings.outputExts = ["jpg", "webp"];
 
   resize(settings);
 
-  res.json({ msg: "resize finish" });
+  res.json({ settings });
 });
 
 const port = 5000;
