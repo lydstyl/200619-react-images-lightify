@@ -66,8 +66,11 @@ export const Settings = () => {
         <label htmlFor="width">Largeur en px</label>
 
         <select name="width" id="width" style={{ marginRight: "20px" }}>
+          <option value="1080">720</option>
+          <option value="1080">768</option>
           <option value="1080">1080</option>
           <option value="1200">1200</option>
+          <option value="1200">1280</option>
           <option value="1366">1366</option>
           <option value="1440">1440</option>
           <option value="1920">1920</option>
