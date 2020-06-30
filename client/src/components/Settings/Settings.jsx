@@ -70,13 +70,14 @@ export const Settings = () => {
           <option value="768">768</option>
           <option value="1080">1080</option>
           <option value="1200">1200</option>
-          <option value="1280">1280</option>
-          <option value="1366">1366</option>
+          <option value="1280">1280 HD</option>
+          <option value="1366">1366 </option>
           <option value="1440">1440</option>
-          <option value="1920">1920</option>
+          <option value="1600">1600 Whatsapp</option>
+          <option value="1920">1920 full HD</option>
           <option value="2160">2160</option>
-          <option value="2560">2560</option>
-          <option value="3840">3840</option>
+          <option value="2560">2560 2K</option>
+          <option value="3840">3840 4K</option>
         </select>
 
         <label htmlFor="width2">Ou préciser</label>
