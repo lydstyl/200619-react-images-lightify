@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server-install": "npm install",
-    "client-install": "cd client && npm install",
+    "server-install": "pnpm install",
+    "client-install": "cd client && pnpm install",
     "server-start": "nodemon server.js",
     "client-start": "cd client && npm start",
     "start": "concurrently -n 'server,client' -c 'red,green' \"npm run server-start\" \"npm run client-start\""
